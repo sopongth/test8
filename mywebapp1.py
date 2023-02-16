@@ -30,7 +30,8 @@ class VideoProcessor:
 
 ctx = webrtc_streamer(key="test",
                 video_processor_factory=VideoProcessor,
-                media_stream_constraints={"video": True,"audio": False})
+                media_stream_constraints={"video": True,"audio": False},
+                rtc_configuration={"iceServers":[{"urls":["stun:stun.l.google.com:19302"]}]})
 
 if ctx.video_processor:
     ctx.video_processor.th = st.slider("เลือกระดับความเข้มของสี",0,255,150)
